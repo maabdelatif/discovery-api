@@ -12,10 +12,10 @@ const agentOptions = {
 const agent = new https.Agent(agentOptions);
 
 const solrOptions = {
-  host: 'search-solr-cluster.search-bastion.int.tools.bbc.co.uk',
-  port: 443,
-  core: 'bbc_en0',
-  path: '/solr',
+  host: process.env.SOLR_HOST,
+  port: process.env.SOLR_PORT,
+  core: process.env.SOLR_CORE,
+  path: process.env.SOLR_PATH,
   secure: true,
   agent: agent
 };
