@@ -16,7 +16,7 @@ const ArticleType = new GraphQLObjectType({
     uri: { type: GraphQLID },
     title: { type: GraphQLString },
     synopsis: { type: GraphQLString },
-    contributors: { type: GraphQLList(GraphQLString) }
+    contributors: { type: new GraphQLList(GraphQLString) }
   })
 });
 
@@ -39,7 +39,7 @@ const RootQuery = new GraphQLObjectType({
   name: 'RootQueryType',
   fields: {
     articles: {
-      type: GraphQLList(ArticleType),
+      type: new GraphQLList(ArticleType),
       args: {
         uri: { type: GraphQLID },
         title: { type: GraphQLString },
@@ -58,7 +58,7 @@ const RootQuery = new GraphQLObjectType({
       }
     },
     contributors: {
-      type: GraphQLList(ContributorType),
+      type: new GraphQLList(ContributorType),
       args: {
         uri: { type: GraphQLID },
       },
